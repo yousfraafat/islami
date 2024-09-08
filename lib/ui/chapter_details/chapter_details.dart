@@ -25,7 +25,7 @@ class _ChapterDetailsState extends State<ChapterDetails> {
     return DefaultScreen(
         body: Scaffold(
       appBar: AppBar(
-        title: Text(args.title),
+        title: Text(args.title, style: Theme.of(context).textTheme.titleMedium),
       ),
       body: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),

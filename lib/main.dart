@@ -22,6 +22,9 @@ class MyApp extends StatelessWidget {
           ChapterDetails.routeName: (_) => ChapterDetails(),
           HadethDetailsScreen.routeName: (_) => HadethDetailsScreen(),
         },
-        theme: MytThemeData.lightTheme);
+      theme: MytThemeData.lightTheme,
+      darkTheme: MytThemeData.darkTheme,
+      themeMode: ThemeMode.light,
+    );
   }
 }

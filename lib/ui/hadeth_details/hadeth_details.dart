@@ -15,7 +15,8 @@ class HadethDetailsScreen extends StatelessWidget {
     return DefaultScreen(
       body: Scaffold(
         appBar: AppBar(
-          title: Text(hadeth.title),
+          title: Text(hadeth.title,
+              style: Theme.of(context).textTheme.titleMedium),
         ),
         body: Card(
           shape:
@@ -31,10 +32,7 @@ class HadethDetailsScreen extends StatelessWidget {
                     child: Text(
                       hadeth.content,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
+                        style: Theme.of(context).textTheme.bodySmall),
                   ),
                 ),
               ),

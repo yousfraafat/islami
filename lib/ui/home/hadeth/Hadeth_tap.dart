@@ -31,8 +31,7 @@ class _HadethTapState extends State<HadethTap> {
           height: 2,
           color: MytThemeData.lightPrimary,
         ),
-        Text('Hadeth',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+        Text('Hadeth', style: Theme.of(context).textTheme.titleSmall),
         Container(
           width: double.infinity,
           height: 2,

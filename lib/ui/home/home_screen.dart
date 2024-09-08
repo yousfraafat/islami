@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return DefaultScreen(
       body: Scaffold(
         appBar: AppBar(
-          title: Text('Islami'),
+          title: Text('Islami', style: Theme.of(context).textTheme.titleMedium),
         ),
         body: taps[selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
@@ -36,10 +36,14 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           currentIndex: selectedIndex,
           items: [
-            BottomNavItem('assets/images/icon_quran.png', 'quran'),
-            BottomNavItem('assets/images/icon_hadeth.png', 'hadeth'),
-            BottomNavItem('assets/images/icon_sebha.png', 'tasbeh'),
-            BottomNavItem('assets/images/icon_radio.png', 'radio'),
+            BottomNavItem('assets/images/icon_quran.png', 'quran',
+                Theme.of(context).colorScheme.primary),
+            BottomNavItem('assets/images/icon_hadeth.png', 'hadeth',
+                Theme.of(context).colorScheme.primary),
+            BottomNavItem('assets/images/icon_sebha.png', 'tasbeh',
+                Theme.of(context).colorScheme.primary),
+            BottomNavItem('assets/images/icon_radio.png', 'radio',
+                Theme.of(context).colorScheme.primary),
           ],
         ),
       ),

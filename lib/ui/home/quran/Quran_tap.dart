@@ -131,8 +131,7 @@ class QuranTap extends StatelessWidget {
           height: 2,
           color: MytThemeData.lightPrimary,
         ),
-        Text('chapters',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+        Text('chapters', style: Theme.of(context).textTheme.titleSmall),
         Container(
           width: double.infinity,
           height: 2,
