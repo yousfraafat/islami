@@ -16,6 +16,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        initialRoute: SplashScreen.routeName,
+        routes: {
+          SplashScreen.routeName: (_) => SplashScreen(),
+          HomeScreen.routeName: (_) => HomeScreen(),
+          ChapterDetails.routeName: (_) => ChapterDetails(),
+          HadethDetailsScreen.routeName: (_) => HadethDetailsScreen(),
+        },
+      theme: MytThemeData.lightTheme,
+      darkTheme: MytThemeData.darkTheme,
+      themeMode: ThemeMode.light,
+    );
       initialRoute: SplashScreen.routeName,
       routes: {
         SplashScreen.routeName: (_) => SplashScreen(),
