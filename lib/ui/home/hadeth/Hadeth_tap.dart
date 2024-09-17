@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:islami2/ui/home/hadeth/hadeth_title.dart';
 
 import '../../theme/mytheme.dart';
+import '../../ui_utills.dart';
 
 class HadethTap extends StatefulWidget {
   HadethTap({super.key});
@@ -31,7 +32,7 @@ class _HadethTapState extends State<HadethTap> {
           height: 2,
           color: MytThemeData.lightPrimary,
         ),
-        Text('Hadeth', style: Theme.of(context).textTheme.titleSmall),
+        Text(AppTranslations(context).hadethNum, style: Theme.of(context).textTheme.titleSmall),
         Container(
           width: double.infinity,
           height: 2,
