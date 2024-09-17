@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:islami2/ui/home/quran/chapter_title.dart';
 import 'package:islami2/ui/theme/mytheme.dart';
 
+import '../../ui_utills.dart';
+
 class QuranTap extends StatelessWidget {
   var chapters = [
     "الفاتحه",
@@ -131,7 +133,7 @@ class QuranTap extends StatelessWidget {
           height: 2,
           color: MytThemeData.lightPrimary,
         ),
-        Text('chapters',
+        Text(AppTranslations(context).chapterTitle,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
         Container(
           width: double.infinity,
