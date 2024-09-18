@@ -5,14 +5,14 @@ import 'package:islami2/ui/home/hadeth/hadeth_title.dart';
 import '../../theme/mytheme.dart';
 import '../../ui_utills.dart';
 
-class HadethTap extends StatefulWidget {
-  HadethTap({super.key});
+class HadethTab extends StatefulWidget {
+  HadethTab({super.key});
 
   @override
-  State<HadethTap> createState() => _HadethTapState();
+  State<HadethTab> createState() => _HadethTapState();
 }
 
-class _HadethTapState extends State<HadethTap> {
+class _HadethTapState extends State<HadethTab> {
   List<Hadeth> AllHadeth = [];
 
   @override

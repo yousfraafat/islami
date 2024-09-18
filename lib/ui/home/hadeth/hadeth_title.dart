@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islami2/ui/home/hadeth/Hadeth_tap.dart';
+import 'package:islami2/ui/home/hadeth/Hadeth_tab.dart';
 
 import '../../hadeth_details/hadeth_details.dart';
 

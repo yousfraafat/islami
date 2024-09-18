@@ -4,7 +4,7 @@ import 'package:islami2/ui/theme/mytheme.dart';
 
 import '../../ui_utills.dart';
 
-class QuranTap extends StatelessWidget {
+class QuranTab extends StatelessWidget {
   var chapters = [
     "الفاتحه",
     "البقرة",

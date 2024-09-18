@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TasbehTap extends StatelessWidget {
-  const TasbehTap({super.key});
+class TasbehTab extends StatelessWidget {
+  const TasbehTab({super.key});
 
   @override
   Widget build(BuildContext context) {
