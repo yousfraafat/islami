@@ -6,5 +6,9 @@
   "radioTap": "الازاعة",
   "hadethNum": "الحديث",
   "chapterTitle": "السورة",
-  "settings": "الاعدادات"
+  "settings": "الاعدادات",
+  "language": "اللغة",
+  "theme": "المظهر",
+  "light": "نهاري",
+  "dark": "ليلي"
 }

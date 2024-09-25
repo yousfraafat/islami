@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:islami2/ui/home/settings/languageBottomSheet.dart';
 import 'package:islami2/ui/home/settings/themeBottomSheet.dart';
+import 'package:islami2/ui/ui_utills.dart';
+
+import '../../providers/localeProvider.dart';
+import '../../providers/themeProvider.dart';
 
 class SettingsTab extends StatelessWidget {
   const SettingsTab({super.key});
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = ThemeProvider.get(context);
+    LocaleProvider localeProvider = LocaleProvider.get(context);
+
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 36, horizontal: 12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('theme', style: Theme.of(context).textTheme.bodySmall),
+          Text(getTranslations(context).theme,
+              style: Theme.of(context).textTheme.bodySmall),
           Divider(
             height: 12,
           ),
@@ -29,7 +37,10 @@ class SettingsTab extends StatelessWidget {
                 color: Theme.of(context).cardColor,
               ),
               width: double.infinity,
-              child: Text('light',
+              child: Text(
+                  themeProvider.isDarkEnabled()
+                      ? getTranslations(context).dark
+                      : getTranslations(context).light,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: Theme.of(context).colorScheme.secondary)),
             ),
@@ -37,7 +48,8 @@ class SettingsTab extends StatelessWidget {
           Divider(
             height: 25,
           ),
-          Text('language', style: Theme.of(context).textTheme.bodySmall),
+          Text(getTranslations(context).language,
+              style: Theme.of(context).textTheme.bodySmall),
           Divider(
             height: 12,
           ),
@@ -54,7 +66,10 @@ class SettingsTab extends StatelessWidget {
                 color: Theme.of(context).cardColor,
               ),
               width: double.infinity,
-              child: Text('english',
+              child: Text(
+                  localeProvider.currantLocale == Locale('en')
+                      ? 'english'
+                      : 'العربية',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: Theme.of(context).colorScheme.secondary)),
             ),

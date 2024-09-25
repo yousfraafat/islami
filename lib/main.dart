@@ -3,11 +3,17 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami2/ui/chapter_details/chapter_details.dart';
 import 'package:islami2/ui/hadeth_details/hadeth_details.dart';
 import 'package:islami2/ui/home/home_screen.dart';
+import 'package:islami2/ui/providers/localeProvider.dart';
+import 'package:islami2/ui/providers/themeProvider.dart';
 import 'package:islami2/ui/splash/splash_screen.dart';
 import 'package:islami2/ui/theme/mytheme.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider<ThemeProvider>(create: (_) => ThemeProvider()),
+    ChangeNotifierProvider<LocaleProvider>(create: (_) => LocaleProvider())
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -15,6 +21,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = ThemeProvider.get(context);
+    LocaleProvider localeProvider = LocaleProvider.get(context);
     return MaterialApp(
         initialRoute: SplashScreen.routeName,
         routes: {
@@ -25,10 +33,10 @@ class MyApp extends StatelessWidget {
         },
       theme: MytThemeData.lightTheme,
       darkTheme: MytThemeData.darkTheme,
-      themeMode: ThemeMode.light,
+      themeMode: themeProvider.currantTheme,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: Locale('en'),
+      locale: localeProvider.currantLocale,
     );
   }
 }

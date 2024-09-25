@@ -32,7 +32,8 @@ class _HadethTapState extends State<HadethTab> {
           height: 2,
           color: MytThemeData.lightPrimary,
         ),
-        Text(AppTranslations(context).hadethNum, style: Theme.of(context).textTheme.titleSmall),
+        Text(getTranslations(context).hadethNum,
+            style: Theme.of(context).textTheme.titleSmall),
         Container(
           width: double.infinity,
           height: 2,

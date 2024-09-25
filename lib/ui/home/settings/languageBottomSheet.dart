@@ -1,41 +1,74 @@
 import 'package:flutter/material.dart';
+import 'package:islami2/ui/providers/localeProvider.dart';
 
-class languageBottomSheet extends StatelessWidget {
+class languageBottomSheet extends StatefulWidget {
   const languageBottomSheet({super.key});
 
   @override
+  State<languageBottomSheet> createState() => _languageBottomSheetState();
+}
+
+class _languageBottomSheetState extends State<languageBottomSheet> {
+  @override
   Widget build(BuildContext context) {
+    LocaleProvider localeProvider = LocaleProvider.get(context);
     return Container(
       padding: EdgeInsets.all(25),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          getSelectedItem(context, 'english'),
+          InkWell(
+              onTap: () {
+                setState(() {
+                  localeProvider.changeLocale(Locale('en'));
+                });
+              },
+              child: localeProvider.currantLocale == Locale('en')
+                  ? getSelectedItem(context, 'english')
+                  : getUnselectedItem(context, 'english')),
           Divider(height: 25),
-          getUnselectedItem(context, 'العربية')
+          InkWell(
+              onTap: () {
+                setState(() {
+                  localeProvider.changeLocale(Locale('ar'));
+                });
+              },
+              child: localeProvider.currantLocale == Locale('en')
+                  ? getUnselectedItem(context, 'العربية')
+                  : getSelectedItem(context, 'العربية'))
         ],
       ),
     );
   }
 
   Widget getSelectedItem(BuildContext context, String text) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(text,
-            style: Theme.of(context)
-                .textTheme
-                .bodyMedium
-                ?.copyWith(color: Theme.of(context).colorScheme.secondary)),
-        Icon(Icons.check, color: Theme.of(context).colorScheme.secondary),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(text,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium
+                  ?.copyWith(color: Theme.of(context).colorScheme.secondary)),
+          Icon(Icons.check, color: Theme.of(context).colorScheme.secondary),
+        ],
+      ),
     );
   }
 
   Widget getUnselectedItem(BuildContext context, String text) {
-    return Text(
-      text,
-      style: Theme.of(context).textTheme.bodyMedium,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        children: [
+          Text(
+            text,
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+        ],
+      ),
     );
   }
 }

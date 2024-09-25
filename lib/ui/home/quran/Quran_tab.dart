@@ -127,13 +127,14 @@ class QuranTab extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Container(child: Image.asset('assets/images/qur2an_screen_logo.png')),
+        Container(child: Image.asset('assets/images/quran_screen_logo.png')),
         Container(
           width: double.infinity,
           height: 2,
           color: MytThemeData.lightPrimary,
         ),
-        Text(AppTranslations(context).chapterTitle, style: Theme.of(context).textTheme.titleSmall),
+        Text(getTranslations(context).chapterTitle,
+            style: Theme.of(context).textTheme.titleSmall),
         Container(
           width: double.infinity,
           height: 2,

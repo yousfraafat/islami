@@ -6,5 +6,9 @@
   "radioTap": "Radio",
   "hadethNum": "Hadeth",
   "chapterTitle": "Chapters",
-  "settings": "settings"
+  "settings": "settings",
+  "language": "language",
+  "theme": "theme",
+  "light": "light",
+  "dark": "dark"
 }

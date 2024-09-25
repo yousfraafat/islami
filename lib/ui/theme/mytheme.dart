@@ -4,9 +4,9 @@ class MytThemeData {
   static final Color lightPrimary = Color(0xffB7935F);
   static final Color darkPrimary = Color(0xff141A2E);
   static final Color darkSecondary = Color(0xffFACC1D);
-  static const bool isDark = false;
 
   static final ThemeData lightTheme = ThemeData(
+      bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.white),
       textTheme: TextTheme(
           titleMedium: TextStyle(
               color: Colors.black,
@@ -45,7 +45,7 @@ class MytThemeData {
       colorScheme: ColorScheme.fromSeed(
           seedColor: lightPrimary,
           primary: lightPrimary,
-          onPrimary: Colors.white,
+          onPrimary: Colors.black,
           secondary: lightPrimary,
           onSecondary: Colors.black),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -55,6 +55,7 @@ class MytThemeData {
       ));
 
   static final ThemeData darkTheme = ThemeData(
+      bottomSheetTheme: BottomSheetThemeData(backgroundColor: darkPrimary),
       textTheme: TextTheme(
           titleMedium: TextStyle(
               color: Colors.white,
