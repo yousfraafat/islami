@@ -67,8 +67,7 @@ class SettingsTab extends StatelessWidget {
               ),
               width: double.infinity,
               child: Text(
-                  localeProvider.currantLocale == Locale('en')
-                      ? 'english'
+                  localeProvider.currantLocale == 'en' ? 'english'
                       : 'العربية',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: Theme.of(context).colorScheme.secondary)),

@@ -8,11 +8,14 @@ import 'package:islami2/ui/providers/themeProvider.dart';
 import 'package:islami2/ui/splash/splash_screen.dart';
 import 'package:islami2/ui/theme/mytheme.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
   runApp(MultiProvider(providers: [
-    ChangeNotifierProvider<ThemeProvider>(create: (_) => ThemeProvider()),
-    ChangeNotifierProvider<LocaleProvider>(create: (_) => LocaleProvider())
+    ChangeNotifierProvider<ThemeProvider>(create: (_) => ThemeProvider(prefs)),
+    ChangeNotifierProvider<LocaleProvider>(create: (_) => LocaleProvider(prefs))
   ], child: const MyApp()));
 }
 
@@ -36,7 +39,7 @@ class MyApp extends StatelessWidget {
       themeMode: themeProvider.currantTheme,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: localeProvider.currantLocale,
+      locale: Locale(localeProvider.currantLocale),
     );
   }
 }

@@ -20,22 +20,22 @@ class _languageBottomSheetState extends State<languageBottomSheet> {
           InkWell(
               onTap: () {
                 setState(() {
-                  localeProvider.changeLocale(Locale('en'));
+                  localeProvider.changeLocale('en');
                 });
               },
-              child: localeProvider.currantLocale == Locale('en')
+              child: localeProvider.currantLocale == 'en'
                   ? getSelectedItem(context, 'english')
                   : getUnselectedItem(context, 'english')),
           Divider(height: 25),
           InkWell(
               onTap: () {
                 setState(() {
-                  localeProvider.changeLocale(Locale('ar'));
+                  localeProvider.changeLocale('ar');
                 });
               },
-              child: localeProvider.currantLocale == Locale('en')
-                  ? getUnselectedItem(context, 'العربية')
-                  : getSelectedItem(context, 'العربية'))
+              child: localeProvider.currantLocale == 'ar'
+                  ? getSelectedItem(context, 'العربية')
+                  : getUnselectedItem(context, 'العربية'))
         ],
       ),
     );
