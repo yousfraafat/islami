@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:islami/taps/hadeth_tap/hadeth_details.dart';
 
 class HadethTap extends StatefulWidget {
-  HadethTap({super.key});
+  const HadethTap({super.key});
 
   @override
   State<HadethTap> createState() => _HadethTapState();
