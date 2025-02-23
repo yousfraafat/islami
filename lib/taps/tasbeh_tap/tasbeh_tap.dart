@@ -95,13 +95,7 @@ class _TasbehTapState extends State<TasbehTap> {
           child: Container(
             margin: EdgeInsets.only(top: 20),
             padding: EdgeInsets.symmetric(horizontal: 10),
-            // decoration: BoxDecoration(
-            //   border: Border.all(color: Colors.black),
-            //   borderRadius: BorderRadius.circular(40),
-            // ),
-            child:
-            // Icon(Icons.refresh_sharp,size: 30,)
-            Text('reset', style: TextStyle(color: Colors.black, fontSize: 30)),
+            child: Icon(Icons.refresh_sharp, size: 30),
           ),
         ),
       ],
