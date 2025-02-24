@@ -12,10 +12,16 @@ class MyThemeData {
     cardColor: Colors.white,
     textTheme: TextTheme(
       titleLarge: TextStyle(
-          color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),
+          color: Colors.black,
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+          fontFamily: 'El_Messiri'),
       titleMedium: TextStyle(
-          color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold),
-      bodyLarge: TextStyle(color: Colors.black, fontSize: 30,),
+          color: Colors.black,
+          fontSize: 25,
+          fontWeight: FontWeight.bold,
+          fontFamily: 'El_Messiri'),
+      bodyLarge: TextStyle(color: Colors.black, fontSize: 30),
     ),
     appBarTheme: AppBarTheme(
       iconTheme: IconThemeData(color: Colors.black),
@@ -25,6 +31,7 @@ class MyThemeData {
         color: Colors.black,
         fontSize: 30,
         fontWeight: FontWeight.bold,
+          fontFamily: 'El_Messiri'
       ),
     ),
     scaffoldBackgroundColor: Colors.transparent,
