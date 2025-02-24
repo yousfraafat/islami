@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/tabs/hadeth_tab/hadeth_details.dart';
 
 class HadethTab extends StatefulWidget {
@@ -28,7 +29,7 @@ class _HadethTabState extends State<HadethTab> {
             .colorScheme
             .secondary, thickness: 3),
         Text(
-          'Hadeth Number',
+          AppLocalizations.of(context)!.hadethNumber,
           style: Theme
               .of(context)
               .textTheme

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../my_theme_data.dart';
 
@@ -62,7 +63,7 @@ class _TasbehTapState extends State<TasbehTap> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'tasbeh count',
+                AppLocalizations.of(context)!.tasbehCount,
                 style: Theme.of(context).textTheme.titleLarge,
               ),
             ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RadioTap extends StatelessWidget {
   const RadioTap({super.key});
@@ -10,7 +11,7 @@ class RadioTap extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Image.asset('assets/images/radio_image.png'),
-        Text('quran radio channel',
+        Text(AppLocalizations.of(context)!.quranRadio,
           style: Theme.of(context).textTheme.titleLarge,
         ),
         Row(
