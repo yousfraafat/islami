@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islami/taps/hadeth_tap/hadeth_details.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami/tabs/hadeth_tab/hadeth_details.dart';
 
-class HadethTap extends StatefulWidget {
-  HadethTap({super.key});
+class HadethTab extends StatefulWidget {
+  const HadethTab({super.key});
 
   @override
-  State<HadethTap> createState() => _HadethTapState();
+  State<HadethTab> createState() => _HadethTabState();
 }
 
-class _HadethTapState extends State<HadethTap> {
+class _HadethTabState extends State<HadethTab> {
   List<Hadeth> ahadeth = [];
 
   @override
@@ -23,12 +24,21 @@ class _HadethTapState extends State<HadethTap> {
     return Column(
       children: [
         Center(child: Image.asset('assets/images/hadeth_logo.png')),
-        Divider(color: Color(0xffB7935F), thickness: 3),
+        Divider(color: Theme
+            .of(context)
+            .colorScheme
+            .secondary, thickness: 3),
         Text(
-          'Hadeth Number',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+          AppLocalizations.of(context)!.hadethNumber,
+          style: Theme
+              .of(context)
+              .textTheme
+              .titleMedium,
         ),
-        Divider(color: Color(0xffB7935F), thickness: 3),
+        Divider(color: Theme
+            .of(context)
+            .colorScheme
+            .secondary, thickness: 3),
         Expanded(
           child:
               ahadeth.isNotEmpty
@@ -44,10 +54,10 @@ class _HadethTapState extends State<HadethTap> {
                         child: Text(
                           textAlign: TextAlign.center,
                           ahadeth[index].hadethTitle,
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: Theme
+                              .of(context)
+                              .textTheme
+                              .titleLarge,
                         ),
                       );
                     },
@@ -55,7 +65,10 @@ class _HadethTapState extends State<HadethTap> {
                         (context, index) => Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 50),
                           child: Divider(
-                            color: Color(0xffB7935F),
+                            color: Theme
+                                .of(context)
+                                .colorScheme
+                                .secondary,
                             thickness: 2,
                           ),
                         ),

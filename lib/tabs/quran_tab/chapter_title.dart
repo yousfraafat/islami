@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'chapter_details.dart';
 
 class ChapterTitle extends StatelessWidget {
@@ -31,11 +32,17 @@ class ChapterTitle extends StatelessWidget {
         children: [
           Text(
             chapterName,
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            style: Theme
+                .of(context)
+                .textTheme
+                .titleLarge,
           ),
           Text(
             versesNumber.toString(),
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            style: Theme
+                .of(context)
+                .textTheme
+                .titleLarge,
           ),
         ],
       ),
