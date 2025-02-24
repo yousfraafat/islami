@@ -248,7 +248,10 @@ class QuranTab extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Text(
-              'Chapters', style: Theme.of(context).textTheme.titleMedium)),
+                'Chapters', style: Theme
+                .of(context)
+                .textTheme
+                .titleMedium),
             Text(
               'verses number',
               style: Theme
@@ -256,8 +259,7 @@ class QuranTab extends StatelessWidget {
                   .textTheme
                   .titleMedium,
             ),
-          ],
-        ),
+          ]),
         Divider(color: Theme
             .of(context)
             .colorScheme

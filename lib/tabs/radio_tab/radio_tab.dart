@@ -21,17 +21,17 @@ class RadioTap extends StatelessWidget {
               size: 50,
               color: Theme.of(context).colorScheme.secondary,
             ),
-            SizedBox(width: 50,),con(
+            SizedBox(width: 50,), Icon(
               Icons.play_arrow_rounded,
               size: 80,
               color: Theme.of(context).colorScheme.secondary,
             ),
-            SSizedBox(width: 50,),on(
+            SizedBox(width: 50,), Icon(
               Icons.skip_next,
               size: 50,
               color: Theme.of(context).colorScheme.secondary,
             ),
-          ]],
+          ],
         )
       ],
     );
