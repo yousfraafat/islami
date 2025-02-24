@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islami/my_theme_data.dart';
-import 'package:islami/tabs/hadeth_tab/hadeth_tab.dart';
-import 'package:islami/tabs/quran_tab/quran_tab.dart';
-import 'package:islami/tabs/radio_tab/radio_tab.dart';
-import 'package:islami/tabs/tasbeh_tab/tasbeh_tab.dart';
+import 'package:islami/taps/hadeth_tap/hadeth_tap.dart';
+import 'package:islami/taps/quran_tap/quran_tap.dart';
+import 'package:islami/taps/radio_tap/radio_tap.dart';
+import 'package:islami/taps/tasbeh_tap/tasbeh_tap.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home screen';
@@ -18,24 +16,19 @@ class HomeScreen extends StatefulWidget {
 class HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
 
-  List<Widget> taps = [QuranTab(), HadethTab(), TasbehTap(), RadioTap()];
+  List<Widget> taps = [QuranTap(), HadethTap(), TasbehTap(), RadioTap()];
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(
-            MyThemeData.isDark == true
-                ? 'assets/images/dark_bg.png'
-                : 'assets/images/default_bg.png',
-          ),
+          image: AssetImage('assets/images/default_bg.png'),
           fit: BoxFit.cover,
         ),
       ),
       child: Scaffold(
-        appBar: AppBar(title: Text(AppLocalizations.of(context)!.appTitle),
-            centerTitle: true),
+        appBar: AppBar(title: const Text('islami'), centerTitle: true),
         body: taps[selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           onTap: (index) {
@@ -45,25 +38,25 @@ class HomeScreenState extends State<HomeScreen> {
           },
           currentIndex: selectedIndex,
           items: [
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: ImageIcon(AssetImage('assets/images/icon_quran.png')),
-              label: AppLocalizations.of(context)!.quranTab,
-              backgroundColor: Theme.of(context).colorScheme.primary,
+              label: 'quran',
+              backgroundColor: Color(0xffB7935F),
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: ImageIcon(AssetImage('assets/images/icon_hadeth.png')),
-              label: AppLocalizations.of(context)!.hadethTab,
-              backgroundColor: Theme.of(context).colorScheme.primary,
+              label: 'hadeth',
+              backgroundColor: Color(0xffB7935F),
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: ImageIcon(AssetImage('assets/images/icon_sebha.png')),
-              label: AppLocalizations.of(context)!.tasbehTab,
-              backgroundColor: Theme.of(context).colorScheme.primary,
+              label: 'tasbeh',
+              backgroundColor: Color(0xffB7935F),
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: ImageIcon(AssetImage('assets/images/icon_radio.png')),
-              label: AppLocalizations.of(context)!.radioTab,
-              backgroundColor: Theme.of(context).colorScheme.primary,
+              label: 'radio',
+              backgroundColor: Color(0xffB7935F),
             ),
           ],
         ),

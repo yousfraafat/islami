@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islami/tabs/quran_tab/chapter_title.dart';
+import 'package:islami/taps/quran_tap/chapter_title.dart';
 
-class QuranTab extends StatelessWidget {
-  QuranTab({super.key});
+class QuranTap extends StatelessWidget {
+  QuranTap({super.key});
 
   final List<String> chapterNames = [
     "الفاتحه",
@@ -244,27 +243,21 @@ class QuranTab extends StatelessWidget {
     return Column(
       children: [
         Center(child: Image.asset('assets/images/quran_screen_logo.png')),
-        Divider(color: Theme.of(context).colorScheme.secondary, thickness: 3),
+        Divider(color: Color(0xffB7935F), thickness: 3),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Text(
-                AppLocalizations.of(context)!.chapters, style: Theme
-                .of(context)
-                .textTheme
-                .titleMedium),
-            Text(
-              AppLocalizations.of(context)!.versesNumber,
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .titleMedium,
+              'Chapters',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
             ),
-          ]),
-        Divider(color: Theme
-            .of(context)
-            .colorScheme
-            .secondary, thickness: 3),
+            Text(
+              'verses number',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+            ),
+          ],
+        ),
+        Divider(color: Color(0xffB7935F), thickness: 3),
         Expanded(
           child: ListView.separated(
             itemBuilder: (BuildContext context, int index) {
@@ -277,10 +270,7 @@ class QuranTab extends StatelessWidget {
             separatorBuilder:
                 (context, index) => Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 50),
-                  child: Divider(color: Theme
-                      .of(context)
-                      .colorScheme
-                      .secondary, thickness: 2),
+                  child: Divider(color: Color(0xffB7935F), thickness: 2),
                 ),
             itemCount: chapterNames.length,
           ),
