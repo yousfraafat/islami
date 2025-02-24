@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../my_theme_data.dart';
+
 class ChapterDetails extends StatefulWidget {
   static const String routeName = 'chapter details';
 
@@ -21,9 +23,13 @@ class _ChapterDetailsState extends State<ChapterDetails> {
       readFileData(args.chapterIndex);
     }
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/default_bg.png'),
+          image: AssetImage(
+            MyThemeData.isDark == true
+                ? 'assets/images/dark_bg.png'
+                : 'assets/images/default_bg.png',
+          ),
           fit: BoxFit.cover,
         ),
       ),
@@ -35,19 +41,18 @@ class _ChapterDetailsState extends State<ChapterDetails> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
-          color: Colors.white,
+          color: Theme.of(context).cardColor,
           child:
               verses.isNotEmpty
                   ? ListView.separated(
                     itemBuilder: (context, index) {
-                      return Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            '${verses[index]} {${index + 1}}',
-                            style: TextStyle(fontSize: 30),
-                            textDirection: TextDirection.rtl,
-                          ),
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          '${verses[index]} {${index + 1}}',
+                          style: Theme.of(context).textTheme.bodyLarge,
+                          textDirection: TextDirection.rtl,
+                          textAlign: TextAlign.center,
                         ),
                       );
                     },
@@ -56,7 +61,7 @@ class _ChapterDetailsState extends State<ChapterDetails> {
                         (context, index) => Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 50),
                           child: Divider(
-                            color: Color(0xffB7935F),
+                            color: Theme.of(context).colorScheme.secondary,
                             thickness: 2,
                           ),
                         ),

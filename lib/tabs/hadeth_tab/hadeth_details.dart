@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:islami/taps/hadeth_tap/hadeth_tap.dart';
+import 'package:islami/tabs/hadeth_tab/hadeth_tab.dart';
+
+import '../../my_theme_data.dart';
 
 class HadethDetails extends StatelessWidget {
   static const String routeName = 'hadeth details';
@@ -10,9 +12,13 @@ class HadethDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     Hadeth args = ModalRoute.of(context)?.settings.arguments as Hadeth;
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/default_bg.png'),
+          image: AssetImage(
+            MyThemeData.isDark == true
+                ? 'assets/images/dark_bg.png'
+                : 'assets/images/default_bg.png',
+          ),
           fit: BoxFit.cover,
         ),
       ),
@@ -24,7 +30,7 @@ class HadethDetails extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
-          color: Colors.white,
+          color: Theme.of(context).cardColor,
           child: Column(
             children: [
               Expanded(
@@ -33,7 +39,7 @@ class HadethDetails extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       args.hadethContent,
-                      style: TextStyle(fontSize: 25),
+                      style: Theme.of(context).textTheme.bodyLarge,
                       textDirection: TextDirection.rtl,
                       textAlign: TextAlign.center,
                     ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../my_theme_data.dart';
+
 class TasbehTap extends StatefulWidget {
   const TasbehTap({super.key});
 
@@ -28,7 +30,11 @@ class _TasbehTapState extends State<TasbehTap> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 40),
-                child: Image.asset('assets/images/head_sebha_logo.png'),
+                child: Image.asset(
+                  MyThemeData.isDark == true
+                      ? 'assets/images/head_sebha_dark.png'
+                      : 'assets/images/head_sebha_logo.png',
+                ),
               ),
               Padding(
                 padding: EdgeInsets.only(
@@ -39,7 +45,11 @@ class _TasbehTapState extends State<TasbehTap> {
                   child: AnimatedRotation(
                     turns: sebhaRotation,
                     duration: Duration(milliseconds: 100),
-                    child: Image.asset('assets/images/body_sebha_logo.png'),
+                    child: Image.asset(
+                      MyThemeData.isDark == true
+                          ? 'assets/images/body_sebha_dark.png'
+                          : 'assets/images/body_sebha_logo.png',
+                    ),
                   ),
                 ),
               ),
@@ -53,7 +63,7 @@ class _TasbehTapState extends State<TasbehTap> {
             children: [
               Text(
                 'tasbeh count',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                style: Theme.of(context).textTheme.titleLarge,
               ),
             ],
           ),
@@ -62,12 +72,12 @@ class _TasbehTapState extends State<TasbehTap> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
-          color: Color(0xffC9B496),
+          color: Theme.of(context).colorScheme.primary,
           child: Container(
             margin: EdgeInsets.all(35),
             child: Text(
               '$tasbehCount',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
         ),
@@ -75,28 +85,24 @@ class _TasbehTapState extends State<TasbehTap> {
           padding: EdgeInsets.all(10),
           margin: EdgeInsets.all(20),
           decoration: BoxDecoration(
-            color: Color(0xffB7935F),
+            color: Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.circular(30),
           ),
           child: InkWell(
             onTap: onSebhaTap,
             child: Text(
               tasbeh[index],
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: Theme.of(context).colorScheme.onSecondary,
               ),
             ),
           ),
         ),
-        InkWell(
-          onTap: resetSebha,
-          child: Container(
-            margin: EdgeInsets.only(top: 20),
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            child: Icon(Icons.refresh_sharp, size: 30),
-          ),
+        IconButton(
+          onPressed: resetSebha,
+          icon: Icon(Icons.refresh_sharp),
+          style: IconButton.styleFrom(iconSize: 50),
+          color: Theme.of(context).colorScheme.secondary,
         ),
       ],
     );
