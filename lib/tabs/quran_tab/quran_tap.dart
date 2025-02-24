@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:islami/taps/quran_tap/chapter_title.dart';
+import 'package:islami/tabs/quran_tab/chapter_title.dart';
 
-class QuranTap extends StatelessWidget {
-  QuranTap({super.key});
+class QuranTab extends StatelessWidget {
+  QuranTab({super.key});
 
   final List<String> chapterNames = [
     "الفاتحه",
@@ -243,21 +243,25 @@ class QuranTap extends StatelessWidget {
     return Column(
       children: [
         Center(child: Image.asset('assets/images/quran_screen_logo.png')),
-        Divider(color: Color(0xffB7935F), thickness: 3),
+        Divider(color: Theme.of(context).colorScheme.secondary, thickness: 3),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Text(
-              'Chapters',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
-            ),
+              'Chapters', style: Theme.of(context).textTheme.titleMedium)),
             Text(
               'verses number',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .titleMedium,
             ),
           ],
         ),
-        Divider(color: Color(0xffB7935F), thickness: 3),
+        Divider(color: Theme
+            .of(context)
+            .colorScheme
+            .secondary, thickness: 3),
         Expanded(
           child: ListView.separated(
             itemBuilder: (BuildContext context, int index) {
@@ -270,7 +274,10 @@ class QuranTap extends StatelessWidget {
             separatorBuilder:
                 (context, index) => Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 50),
-                  child: Divider(color: Color(0xffB7935F), thickness: 2),
+                  child: Divider(color: Theme
+                      .of(context)
+                      .colorScheme
+                      .secondary, thickness: 2),
                 ),
             itemCount: chapterNames.length,
           ),
