@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/tabs/settings_tab/language_bottom_sheet.dart';
 import 'package:islami/tabs/settings_tab/theme_bottom_sheet.dart';
+import 'package:provider/provider.dart';
+
+import '../../providers/locale_provider.dart';
+import '../../providers/theme_provider.dart';
 
 class SettingsTab extends StatelessWidget {
   const SettingsTab({super.key});
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+    LocaleProvider localeProvider = Provider.of<LocaleProvider>(context);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 15),
       child: Column(
@@ -34,7 +40,9 @@ class SettingsTab extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Text(
-                'light',
+                themeProvider.isDark()
+                    ? AppLocalizations.of(context)!.darkTheme
+                    : AppLocalizations.of(context)!.lightTheme,
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   color: Theme.of(context).colorScheme.secondary,
                 ),
@@ -62,7 +70,7 @@ class SettingsTab extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Text(
-                'english',
+                localeProvider.currentLocale == 'en' ? 'english' : 'العربية',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   color: Theme.of(context).colorScheme.secondary,
                 ),

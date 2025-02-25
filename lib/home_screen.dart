@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islami/my_theme_data.dart';
+import 'package:islami/providers/theme_provider.dart';
 import 'package:islami/tabs/hadeth_tab/hadeth_tab.dart';
 import 'package:islami/tabs/quran_tab/quran_tab.dart';
 import 'package:islami/tabs/radio_tab/radio_tab.dart';
 import 'package:islami/tabs/settings_tab/settings_tab.dart';
 import 'package:islami/tabs/tasbeh_tab/tasbeh_tab.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home screen';
@@ -29,11 +30,12 @@ class HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
-            MyThemeData.isDark == true
+            themeProvider.isDark()
                 ? 'assets/images/dark_bg.png'
                 : 'assets/images/default_bg.png',
           ),

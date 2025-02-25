@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
-import '../../my_theme_data.dart';
+import '../../providers/theme_provider.dart';
 
 class ChapterDetails extends StatefulWidget {
   static const String routeName = 'chapter details';
@@ -17,6 +18,7 @@ class _ChapterDetailsState extends State<ChapterDetails> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
     ChapterArgs args =
         ModalRoute.of(context)?.settings.arguments as ChapterArgs;
     if (verses.isEmpty) {
@@ -26,7 +28,7 @@ class _ChapterDetailsState extends State<ChapterDetails> {
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
-            MyThemeData.isDark == true
+            themeProvider.isDark()
                 ? 'assets/images/dark_bg.png'
                 : 'assets/images/default_bg.png',
           ),

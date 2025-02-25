@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 class MyThemeData {
   MyThemeData();
 
-  static bool isDark = false;
   static final Color lightPrimary = Color(0xffB7935F);
   static final Color lightSecondary = Color(0xffC9B496);
   static final Color darkPrimary = Color(0xff141A2E);
   static final Color darkSecondary = Color(0xffFACC1D);
   static final ThemeData lightTheme = ThemeData(
+    bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.white),
     cardColor: Colors.white,
     textTheme: TextTheme(
       titleLarge: TextStyle(
@@ -55,6 +55,7 @@ class MyThemeData {
     ),
   );
   static final ThemeData darkTheme = ThemeData(
+    bottomSheetTheme: BottomSheetThemeData(backgroundColor: darkPrimary),
     cardColor: darkPrimary,
     textTheme: TextTheme(
       titleLarge: TextStyle(
