@@ -15,6 +15,7 @@ class RadioTap extends StatelessWidget {
           style: Theme.of(context).textTheme.titleLarge,
         ),
         Row(
+          textDirection: TextDirection.ltr,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
