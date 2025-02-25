@@ -7,12 +7,15 @@ import 'package:islami/providers/theme_provider.dart';
 import 'package:islami/tabs/hadeth_tab/hadeth_details.dart';
 import 'package:islami/tabs/quran_tab/chapter_details.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
   runApp(MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => ThemeProvider()),
-        ChangeNotifierProvider(create: (context) => LocaleProvider()),
+        ChangeNotifierProvider(create: (context) => ThemeProvider(prefs)),
+        ChangeNotifierProvider(create: (context) => LocaleProvider(prefs)),
       ],
       child: const MyApp()));
 }
