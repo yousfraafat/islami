@@ -8,5 +8,10 @@
   "versesNumber": "verses number",
   "hadethNumber": "hadeth number",
   "tasbehCount": "taasbeh count",
-  "quranRadio": "quran radio channel"
+  "quranRadio": "quran radio channel",
+  "settingsTab": "settings",
+  "languageSetting": "language",
+  "themeSetting": "theme",
+  "lightTheme": "light",
+  "darkTheme": "dark"
 }

@@ -8,5 +8,10 @@
   "versesNumber": "عدد الايات",
   "hadethNumber": "الاحاديث",
   "tasbehCount": "عدد التسبيحات",
-  "quranRadio": "ازاعة القران الكريم"
+  "quranRadio": "ازاعة القران الكريم",
+  "settingsTab": "الاعدادات",
+  "languageSetting": "اللغة",
+  "themeSetting": "المظهر",
+  "lightTheme": "النهاري",
+  "darkTheme": "الليلي"
 }

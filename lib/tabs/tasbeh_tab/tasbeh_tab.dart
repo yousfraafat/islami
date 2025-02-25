@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
-import '../../my_theme_data.dart';
+import '../../providers/theme_provider.dart';
 
 class TasbehTap extends StatefulWidget {
   const TasbehTap({super.key});
@@ -21,6 +22,7 @@ class _TasbehTapState extends State<TasbehTap> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -32,7 +34,7 @@ class _TasbehTapState extends State<TasbehTap> {
               Padding(
                 padding: const EdgeInsets.only(left: 40),
                 child: Image.asset(
-                  MyThemeData.isDark == true
+                  themeProvider.isDark()
                       ? 'assets/images/head_sebha_dark.png'
                       : 'assets/images/head_sebha_logo.png',
                 ),
@@ -47,7 +49,7 @@ class _TasbehTapState extends State<TasbehTap> {
                     turns: sebhaRotation,
                     duration: Duration(milliseconds: 100),
                     child: Image.asset(
-                      MyThemeData.isDark == true
+                      themeProvider.isDark()
                           ? 'assets/images/body_sebha_dark.png'
                           : 'assets/images/body_sebha_logo.png',
                     ),
