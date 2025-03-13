@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/tabs/settings_tab/language_bottom_sheet.dart';
+import 'package:islami/tabs/settings_tab/setting_drawer.dart';
 import 'package:islami/tabs/settings_tab/theme_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 
@@ -27,19 +28,8 @@ class SettingsTab extends StatelessWidget {
             onTap: () {
               showThemeBottomSheet(context);
             },
-            child: Container(
-              width: double.infinity,
-              margin: EdgeInsets.symmetric(vertical: 15),
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(
-                  color: Theme.of(context).colorScheme.secondary,
-                  width: 3,
-                ),
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: Text(
+            child: SettingDrawer(
+              Text(
                 themeProvider.isDark()
                     ? AppLocalizations.of(context)!.darkTheme
                     : AppLocalizations.of(context)!.lightTheme,
@@ -57,19 +47,8 @@ class SettingsTab extends StatelessWidget {
             onTap: () {
               showLanguageBottomSheet(context);
             },
-            child: Container(
-              width: double.infinity,
-              margin: EdgeInsets.symmetric(vertical: 15),
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(
-                  color: Theme.of(context).colorScheme.secondary,
-                  width: 3,
-                ),
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: Text(
+            child: SettingDrawer(
+              Text(
                 localeProvider.currentLocale == 'en' ? 'english' : 'العربية',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   color: Theme.of(context).colorScheme.secondary,
